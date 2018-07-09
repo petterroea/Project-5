@@ -1,9 +1,12 @@
-package com.project5;
+package com.project5.screens;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.io.File;
 
+import com.project5.AsyncWorker;
+import com.project5.GameWindow;
+import com.project5.Screen;
 import com.project5.assets.AssetLoadingTask;
 
 public class LoadingScreen implements Screen{

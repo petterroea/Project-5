@@ -3,11 +3,15 @@ package com.project5;
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
-public class Project5Entrypoint extends Applet implements Runnable, GameWindow{
+import com.project5.screens.LoadingScreen;
+
+public class Project5Entrypoint extends Applet implements Runnable, GameWindow, MouseListener{
 	
 	private Thread gameThread;
 	//To avoid flickering, we draw to an image which we then quickly blit
@@ -21,6 +25,7 @@ public class Project5Entrypoint extends Applet implements Runnable, GameWindow{
 		//Start by loading assets
 		currentScreen = new LoadingScreen(this);
 		currentScreen.onTransitionIn();
+		this.addMouseListener(this);
 	}
 	
 	@Override
@@ -75,6 +80,43 @@ public class Project5Entrypoint extends Applet implements Runnable, GameWindow{
 			
 			this.getGraphics().drawImage(backBuffer,  0,  0,  null);
 		}
+	}
+
+	@Override
+	public void transitionToScreen(Screen screen) {
+		currentScreen.onTransitionOut();
+		currentScreen = screen;
+		currentScreen.onTransitionIn();
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
