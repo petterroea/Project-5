@@ -32,6 +32,7 @@ public class AssetLoadingTask implements AsyncTask {
 	}
 
 	private void loadJson(File loadingFile) {
+		System.out.println("Loading " + loadingFile.getAbsolutePath());
 		String contents = "";
 		try {
 			contents = readFromFile(loadingFile);
