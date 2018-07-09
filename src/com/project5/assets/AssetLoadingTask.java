@@ -50,6 +50,14 @@ public class AssetLoadingTask implements AsyncTask {
 					//Register image with game engine in AssetManager.java
 				}
 			}
+			if(obj.containsKey("includes")) {
+				JSONArray arr = (JSONArray)obj.get("includes");
+				for(Object o : arr) {
+					String s = (String)o;
+					File f = new File(loadingFile.getParent(), s);
+					loadJson(f);
+				}
+			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -9,8 +9,8 @@ import java.awt.Graphics;
  */
 public interface Screen {
 	//Draw stuff
-	void update(Graphics g);
-	void render(Graphics g);
+	void update(Graphics g, long delta);
+	void render(Graphics g, long delta);
 	
 	//Event handlers
 	void onTransitionIn(); //When this screen is transitioned to

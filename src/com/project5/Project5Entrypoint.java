@@ -12,10 +12,15 @@ public class Project5Entrypoint extends Applet implements Runnable, GameWindow{
 	private Thread gameThread;
 	//To avoid flickering, we draw to an image which we then quickly blit
 	private BufferedImage backBuffer;
+	private Screen currentScreen;
 	
 	@Override
 	public void init() {
 		gameThread = new Thread(this);
+		
+		//Start by loading assets
+		currentScreen = new LoadingScreen(this);
+		currentScreen.onTransitionIn();
 	}
 	
 	@Override
@@ -65,21 +70,8 @@ public class Project5Entrypoint extends Applet implements Runnable, GameWindow{
 			
 			Graphics g = backBuffer.getGraphics();
 			//Draw stuff
-			g.setColor(Color.black);
-			g.fillRect(0, 0, this.getWidth(), this.getHeight());
-			//Draw a nice copper effect
-			for(int i = 0; i < 200; i++) {
-				int xPos = (getWidth()/2) + (int)(Math.sin((double)i*0.5+runtime)*200);
-				int yPosGround = (int)(Math.cos((double)i*0.5+runtime)*30);
-				int yPos = (getHeight()/2) + (int)(Math.cos((double)i*0.734+runtime*1.5)*100) + yPosGround;
-				g.setColor(Color.white);
-				g.drawLine(xPos-1, yPos, xPos+1, yPos);
-				g.drawLine(xPos, yPos-1, xPos, yPos+1);
-				
-				g.setColor(Color.gray);
-				g.drawLine(xPos-1, yPosGround + (this.getHeight()/2)+100, xPos+1, yPosGround + (this.getHeight()/2)+100);
-				g.drawLine(xPos, yPosGround-1 + (this.getHeight()/2)+100, xPos, yPosGround+1 + (this.getHeight()/2)+100);
-			}
+			currentScreen.update(g, delta);
+			currentScreen.render(g, delta);
 			
 			this.getGraphics().drawImage(backBuffer,  0,  0,  null);
 		}
