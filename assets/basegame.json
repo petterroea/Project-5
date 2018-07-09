@@ -1,5 +1,5 @@
 {
 	"type": "manifest",
 	"version": 1,
-	"includes": ["tiles.json"]
+	"includes": ["tiles.json", "theme.json"]
 }

@@ -59,6 +59,10 @@ public class AssetLoadingTask implements AsyncTask {
 					loadJson(f);
 				}
 			}
+			if(obj.containsKey("theme")) {
+				JSONObject themeObj = (JSONObject)obj.get("theme");
+				
+			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

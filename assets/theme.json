@@ -1,0 +1,14 @@
+{
+	"type": "manifest",
+	"version": 1,
+	"assets": [
+		{
+			"name": "com.project5.menuscreen",
+			"filename": "menu.png",
+			"tags": ["gui"]
+		}
+	],
+	"theme": {
+		"menuSplash": "com.project5.menuscreen"
+	}
+}
