@@ -8,6 +8,9 @@ import com.project5.AsyncWorker;
 import com.project5.GameWindow;
 import com.project5.Screen;
 import com.project5.assets.AssetLoadingTask;
+import com.project5.gui.KeyboardEvent;
+import com.project5.gui.MouseButtonEvent;
+import com.project5.gui.MouseMotionEvent;
 
 public class LoadingScreen implements Screen{
 	
@@ -43,6 +46,24 @@ public class LoadingScreen implements Screen{
 
 	@Override
 	public void onTransitionOut() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onMouseButton(MouseButtonEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onMouseMotion(MouseMotionEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onKeyboard(KeyboardEvent event) {
 		// TODO Auto-generated method stub
 		
 	}
