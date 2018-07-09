@@ -21,8 +21,11 @@ public class LoadingScreen implements Screen{
 
 	@Override
 	public void update(Graphics g, long delta) {
-		// TODO Auto-generated method stub
-		
+
+		if(!loadingWorkers.tasksAreNotDone()) {
+			MainMenuScreen mainScreen = new MainMenuScreen(window);
+			window.transitionToScreen(mainScreen);
+		}
 	}
 
 	@Override
@@ -39,6 +42,7 @@ public class LoadingScreen implements Screen{
 		//Add things that need loading here
 		loadingWorkers.addTask(new AssetLoadingTask(new File("assets", "basegame.json")));
 		loadingWorkers.start();
+
 	}
 
 	@Override
