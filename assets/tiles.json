@@ -11,11 +11,15 @@
 	"tiles": [
 		{
 			"name": "Good old grass",
-			"asset": "com.project5.grass"
+			"asset": "com.project5.grass",
+			"elevationStart": 40.0,
+			"elevationEnd": 50.0
 		},
 		{
 			"name": "Hard stone :((",
-			"asset": "com.project5.stone"
+			"asset": "com.project5.stone",
+			"elevationStart": 0.0,
+			"elevationEnd: 40.0
 		}
 	]
 }
