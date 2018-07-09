@@ -15,9 +15,9 @@ import com.project5.AsyncTask;
 import javax.imageio.ImageIO;
 
 public class AssetLoadingTask implements AsyncTask {
-	
+	private File startFile;
 	public AssetLoadingTask(File loadingFile) {
-		loadJson(loadingFile);
+		startFile = loadingFile;
 	}
 	
 	private String readFromFile(File f) throws FileNotFoundException {
@@ -94,7 +94,7 @@ public class AssetLoadingTask implements AsyncTask {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		loadJson(startFile);
 
 	}
 
