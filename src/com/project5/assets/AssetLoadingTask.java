@@ -1,9 +1,7 @@
 package com.project5.assets;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.Scanner;
 
@@ -13,6 +11,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.project5.AsyncTask;
+
+import javax.imageio.ImageIO;
 
 public class AssetLoadingTask implements AsyncTask {
 	
@@ -46,9 +46,14 @@ public class AssetLoadingTask implements AsyncTask {
 				JSONArray assetArray = (JSONArray)obj.get("assets");
 				for(Object o : assetArray) {
 					JSONObject entry = (JSONObject)o;
-					//Load the asset NICO
-					//Hint: ImageIO.read();, use the file name
-					//Register image with game engine in AssetManager.java
+
+					File f = new File(loadingFile.getParent(),(String)entry.get("filename"));
+					BufferedImage loadedImage = ImageIO.read(f);
+
+					String className = (String)entry.get("name");
+					System.out.println(className);
+
+					AssetManager.SINGLETON.registerImage(loadedImage, className);
 				}
 			}
 			if(obj.containsKey("includes")) {
@@ -69,9 +74,11 @@ public class AssetLoadingTask implements AsyncTask {
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
-		
+
+
 	}
 
 	@Override
