@@ -10,6 +10,7 @@ import com.project5.gui.Button;
 import com.project5.gui.KeyboardEvent;
 import com.project5.gui.MouseButtonEvent;
 import com.project5.gui.MouseMotionEvent;
+import com.project5.gui.Slider;
 import com.project5.gui.StackLayoutProvider;
 import com.project5.gui.UiStack;
 import com.project5.gui.StackLayoutProvider.LayoutDirection;
@@ -44,6 +45,13 @@ public class MainMenuScreen implements Screen {
 			public void fire(UiElement target) {
 				System.out.println("Bar");
 			}}));
+		menuButtons.addElement(new Slider(0.0f, 1.0f, 0.5f, new EventHandler() {
+			@Override
+			public void fire(UiElement target) {
+				// TODO Auto-generated method stub
+				
+			}
+		}));
 	}
 
 	@Override
