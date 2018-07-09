@@ -6,6 +6,9 @@ import java.awt.image.BufferedImage;
 import com.project5.GameWindow;
 import com.project5.Screen;
 import com.project5.assets.AssetManager;
+import com.project5.gui.KeyboardEvent;
+import com.project5.gui.MouseButtonEvent;
+import com.project5.gui.MouseMotionEvent;
 
 public class MainMenuScreen implements Screen {
 	private GameWindow window;
@@ -37,6 +40,24 @@ public class MainMenuScreen implements Screen {
 	public void onTransitionOut() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void onMouseButton(MouseButtonEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onMouseMotion(MouseMotionEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onKeyboard(KeyboardEvent event) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
