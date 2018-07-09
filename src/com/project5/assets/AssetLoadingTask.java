@@ -56,6 +56,21 @@ public class AssetLoadingTask implements AsyncTask {
 
 					AssetManager.SINGLETON.registerImage(loadedImage, className);
 				}
+
+			if(obj.containsKey("tiles")){
+					JSONArray tileArray = (JSONArray)obj.get("tiles");
+					for(Object o : tileArray) {
+						JSONObject entry = (JSONObject)o;
+
+						File f = new File(loadingFile.getParent(),(String)entry.get("filename"));
+						BufferedImage loadedImage = ImageIO.read(f);
+
+						String className = (String)entry.get("name");
+						System.out.println(className);
+
+						AssetManager.SINGLETON.registerImage(loadedImage, className);
+					}
+			}
 			}
 			if(obj.containsKey("includes")) {
 				JSONArray arr = (JSONArray)obj.get("includes");
