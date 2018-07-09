@@ -1,0 +1,21 @@
+{
+	"type": "manifest",
+	"version": 1,
+	"assets": [
+		{
+			"name": "com.project5.grass",
+			"filename": "grass.png",
+			"tags": ["2d", "topdown"]
+		}
+	],
+	"tiles": [
+		{
+			"name": "Good old grass",
+			"asset": "com.project5.grass"
+		},
+		{
+			"name": "Good old grass",
+			"asset": "com.project5.grass"
+		}
+	]
+}

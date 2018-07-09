@@ -1,0 +1,5 @@
+{
+	"type": "manifest",
+	"version": 1,
+	"includes": ["tiles.json"]
+}
