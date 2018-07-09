@@ -1,8 +1,10 @@
 package com.project5.gui;
 
+import com.project5.GameWindow;
+
 public class UiStack {
-	public UiStack(int x, int y, int w, int h) {
-		
+	private GameWindow window;
+	public UiStack(GameWindow window, SizingResponder sizer) {
+		this.window = window;
 	}
-	//public UiStack()
 }
