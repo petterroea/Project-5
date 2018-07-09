@@ -16,6 +16,7 @@ import javax.imageio.ImageIO;
 
 public class AssetLoadingTask implements AsyncTask {
 	private File startFile;
+	private boolean done = false;
 	public AssetLoadingTask(File loadingFile) {
 		startFile = loadingFile;
 	}
@@ -89,12 +90,13 @@ public class AssetLoadingTask implements AsyncTask {
 	@Override
 	public boolean isDone() {
 		// TODO Auto-generated method stub
-		return false;
+		return done;
 	}
 
 	@Override
 	public void run() {
 		loadJson(startFile);
+		done = true;
 
 	}
 

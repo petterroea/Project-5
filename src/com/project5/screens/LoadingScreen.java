@@ -25,7 +25,7 @@ public class LoadingScreen implements Screen{
 	@Override
 	public void update(Graphics g, long delta) {
 
-		if(!loadingWorkers.tasksAreNotDone()) {
+		if(loadingWorkers.tasksAreDone()) {
 			MainMenuScreen mainScreen = new MainMenuScreen(window);
 			window.transitionToScreen(mainScreen);
 		}

@@ -31,7 +31,7 @@ public class AsyncWorker {
 		return running;
 	}
 	
-	public boolean tasksAreNotDone() {
+	public boolean tasksAreDone() {
 		boolean oneRunning = false;
 		for(AsyncTask task : tasks) {
 			oneRunning = oneRunning || !task.isDone();
@@ -39,10 +39,10 @@ public class AsyncWorker {
 		for(Thread t : threads) {
 			oneRunning = oneRunning || t.isAlive();
 		}
-		return oneRunning;
+		return !oneRunning;
 	}
 	public void waitForRunning() {
-		while(tasksAreNotDone()) {
+		while(!tasksAreDone()) {
 			try {
 				Thread.sleep(10L);
 			} catch (InterruptedException e) {
