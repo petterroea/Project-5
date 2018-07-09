@@ -11,5 +11,6 @@ public interface UiElement {
 	public int getMinimumHeight();
 	
 	public void render(Graphics g, int x, int y, int w, int h);
-	public void onMouseButton(MouseButtonEvent event, Rectangle drawPos);
+	public void onMouseButton(MouseButtonEvent event, Rectangle drawPos, SizingResponder sizer);
+	public void onMouseMotion(MouseMotionEvent event, Rectangle drawPos, SizingResponder sizer);
 }

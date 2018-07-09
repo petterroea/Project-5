@@ -59,11 +59,17 @@ public class Button implements UiElement {
 	}
 
 	@Override
-	public void onMouseButton(MouseButtonEvent event, Rectangle drawPos) {
+	public void onMouseButton(MouseButtonEvent event, Rectangle drawPos, SizingResponder sizer) {
 		if(event.getState()==MouseButtonState.UP) {
 			System.out.println("Tee hee, i was clicked");
 			callback.fire(this);
 		}
+	}
+
+	@Override
+	public void onMouseMotion(MouseMotionEvent event, Rectangle drawPos, SizingResponder sizer) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

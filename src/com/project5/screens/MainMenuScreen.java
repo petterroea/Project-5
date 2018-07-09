@@ -88,8 +88,7 @@ public class MainMenuScreen implements Screen {
 
 	@Override
 	public void onMouseMotion(MouseMotionEvent event) {
-		// TODO Auto-generated method stub
-		
+		menuButtons.passInMouseMotion(event);
 	}
 
 	@Override

@@ -65,9 +65,27 @@ public class Slider implements UiElement {
 	}
 
 	@Override
-	public void onMouseButton(MouseButtonEvent event, Rectangle drawPos) {
+	public void onMouseButton(MouseButtonEvent event, Rectangle drawPos, SizingResponder sizer) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void onMouseMotion(MouseMotionEvent event, Rectangle drawPos, SizingResponder sizer) {
+		if(event.getType() != MouseMotionEvent.MouseMotionType.DRAG)
+			return;
+		int startX = drawPos.x + 10 + sizer.getX();
+		int endX = drawPos.x + drawPos.width - 10 + sizer.getX();
+		System.out.println("Drag: " + event.getX() + ", start x: " + startX + ", end x: " + endX);
+		if(event.getX() < startX) {
+			value = start;
+		} else if(event.getX() > endX) {
+			value = end;
+		} else {
+			int relX = event.getX()-startX;
+			float lerpedX = (float)relX/(float)(endX-startX);
+			value = (end-start)*lerpedX+start;
+		}
 	}
 
 }

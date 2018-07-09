@@ -42,9 +42,21 @@ public class UiStack {
 		for(UiElement element : elements) {
 			Rectangle drawPos = provider.getLayout(previous, element, sizer);
 			if(drawPos.contains(new Point(event.getX()-sizer.getX(), event.getY()-sizer.getY()))) {
-				element.onMouseButton(event, drawPos);
+				element.onMouseButton(event, drawPos, sizer);
 			}
 			previous = drawPos;
 		}
+	}
+
+	public void passInMouseMotion(MouseMotionEvent event) {
+		Rectangle previous = null;
+		for(UiElement element : elements) {
+			Rectangle drawPos = provider.getLayout(previous, element, sizer);
+			if(drawPos.contains(new Point(event.getX()-sizer.getX(), event.getY()-sizer.getY()))) {
+				element.onMouseMotion(event, drawPos, sizer);
+			}
+			previous = drawPos;
+		}
+		
 	}
 }
