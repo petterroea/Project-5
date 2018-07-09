@@ -64,10 +64,9 @@ public class AssetLoadingTask implements AsyncTask {
 
 						String name = (String)entry.get("name");
 						String asset = (String)entry.get("asset");
-						float elevationStart = (float)entry.get("elevationStart");
-						float elevationEnd = (float)entry.get("elevationEnd");
+						double elevationStart = (double)entry.get("elevationStart");
+						double elevationEnd = (double)entry.get("elevationEnd");
 
-						
 					}
 			}
 			}
