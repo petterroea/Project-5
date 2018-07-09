@@ -132,7 +132,6 @@ public class Project5Entrypoint extends Applet implements Runnable, GameWindow, 
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		currentScreen.onMouseMotion(new MouseMotionEvent(e.getX(), e.getY(), MouseMotionEvent.MouseMotionType.MOVE));
-		
 	}
 
 	@Override
