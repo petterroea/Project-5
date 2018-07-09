@@ -66,7 +66,7 @@ public class AssetLoadingTask implements AsyncTask {
 			}
 			if(obj.containsKey("theme")) {
 				JSONObject themeObj = (JSONObject)obj.get("theme");
-				
+				loadTheme(themeObj);
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -79,6 +79,11 @@ public class AssetLoadingTask implements AsyncTask {
 		}
 
 
+	}
+
+	private void loadTheme(JSONObject themeObj) {
+		Theme theme = new Theme(themeObj);
+		AssetManager.SINGLETON.registerTheme((String)themeObj.get("name"), theme);
 	}
 
 	@Override
